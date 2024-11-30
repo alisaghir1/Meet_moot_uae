@@ -18,16 +18,16 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 mt-5 fixed top-0 left-0 right-0 z-10">
+    <nav className="bg-zinc-900 border-gray-200 0 pt-5 right-0 z-10">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <Image src={logo} className="h-8" alt="Logo" />
+          <Image src={logo} alt="Logo" />
         </Link>
         <button
           onClick={toggleMenu}
           data-collapse-toggle="navbar-default"
           type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 lg md:hidden hover:bg-gray-100 focus:outline-none"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-yellow-500 lg md:hidden hover:text-white  focus:outline-none"
           aria-controls="navbar-default"
           aria-expanded={isOpen ? 'true' : 'false'}
         >
@@ -51,14 +51,18 @@ const Navbar = () => {
 
         {/* Conditionally render the menu based on isOpen state */}
         <div
-          className={`${isOpen ? 'block' : 'hidden'} w-full md:block md:w-auto`}
+          className={`transition-[max-height] duration-500 ease-in-out overflow-hidden ${
+            isOpen ? 'max-h-[500px]' : 'max-h-0'
+          } w-full md:block md:w-auto`}
           id="navbar-default"
         >
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <Link
                 href="/"
-                className={`block py-2 px-3 md:bg-transparent md:text-gray-900 md:p-0 dark:text-white md:dark:text-blue-500 ${pathname === '/' ? 'text-yellow-500 border-b-2 border-yellow-500' : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-yellow-500 md:border-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent'}`}
+                className={`block py-2 px-3 md:bg-transparent md:text-white md:p 
+                  ${pathname === '/' ? 'text-yellow-500 border-b-2 border-yellow-500' : 'text-white md:hover:bg-transparent hover:text-yellow-500 md:border-0 md:dark:hover:bg-transparent'}
+                  transition-colors duration-300 ease-in-out`} 
               >
                 Home
               </Link>
@@ -66,7 +70,9 @@ const Navbar = () => {
             <li>
               <Link
                 href="/locations"
-                className={`block py-2 px-3 md:bg-transparent md:text-gray-900 md:p-0 dark:text-white md:dark:text-blue-500 ${pathname === '/locations' ? 'text-yellow-500 border-b-2 border-yellow-500' : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-yellow-500 md:border-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent'}`}
+                className={`block py-2 px-3 md:bg-transparent md:text-white md:p 
+                  ${pathname === '/locations' ? 'text-yellow-500 border-b-2 border-yellow-500' : 'text-white md:hover:bg-transparent hover:text-yellow-500 md:border-0 md:dark:hover:bg-transparent'}
+                  transition-colors duration-300 ease-in-out`} 
               >
                 Locations
               </Link>
@@ -74,7 +80,9 @@ const Navbar = () => {
             <li>
               <Link
                 href="/menu"
-                className={`block py-2 px-3 md:bg-transparent md:text-gray-900 md:p-0 dark:text-white md:dark:text-blue-500 ${pathname === '/menu' ? 'text-yellow-500 border-b-2 border-yellow-500' : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-yellow-500 md:border-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent'}`}
+                className={`block py-2 px-3 md:bg-transparent md:text-white md:p 
+                  ${pathname === '/menu' ? 'text-yellow-500 border-b-2 border-yellow-500' : 'text-white md:hover:bg-transparent hover:text-yellow-500 md:border-0 md:dark:hover:bg-transparent'}
+                  transition-colors duration-300 ease-in-out`} 
               >
                 Menu
               </Link>
@@ -82,7 +90,9 @@ const Navbar = () => {
             <li>
               <Link
                 href="/about"
-                className={`block py-2 px-3 md:bg-transparent md:text-gray-900 md:p-0 dark:text-white md:dark:text-blue-500 ${pathname === '/about' ? 'text-yellow-500 border-b-2 border-yellow-500' : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-yellow-500 md:border-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent'}`}
+                className={`block py-2 px-3 md:bg-transparent md:text-white md:p 
+                  ${pathname === '/about' ? 'text-yellow-500 border-b-2 border-yellow-500' : 'text-white md:hover:bg-transparent hover:text-yellow-500 md:border-0 md:dark:hover:bg-transparent'}
+                  transition-colors duration-300 ease-in-out`} 
               >
                 About
               </Link>
@@ -90,7 +100,9 @@ const Navbar = () => {
             <li>
               <Link
                 href="/media"
-                className={`block py-2 px-3 md:bg-transparent md:text-gray-900 md:p-0 dark:text-white md:dark:text-blue-500 ${pathname === '/media' ? 'text-yellow-500 border-b-2 border-yellow-500' : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-yellow-500 md:border-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent'}`}
+                className={`block py-2 px-3 md:bg-transparent md:text-white md:p 
+                  ${pathname === '/media' ? 'text-yellow-500 border-b-2 border-yellow-500' : 'text-white md:hover:bg-transparent hover:text-yellow-500 md:border-0 md:dark:hover:bg-transparent'}
+                  transition-colors duration-300 ease-in-out`} 
               >
                 Media
               </Link>
@@ -98,7 +110,9 @@ const Navbar = () => {
             <li>
               <Link
                 href="/contactUs"
-                className={`block py-2 px-3 md:bg-transparent md:text-gray-900 md:p-0 dark:text-white md:dark:text-blue-500 ${pathname === '/contactUs' ? 'text-yellow-500 border-b-2 border-yellow-500' : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-yellow-500 md:border-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent'}`}
+                className={`block py-2 px-3 md:bg-transparent md:text-white md:p 
+                  ${pathname === '/contactUs' ? 'text-yellow-500 border-b-2 border-yellow-500' : 'text-white md:hover:bg-transparent hover:text-yellow-500 md:border-0 md:dark:hover:bg-transparent'}
+                  transition-colors duration-300 ease-in-out`} 
               >
                 Contact
               </Link>
